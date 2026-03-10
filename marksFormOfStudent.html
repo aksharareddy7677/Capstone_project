@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Marks-Form-Of-Student</title>
+</head>
+<body>
+    <h1>Marks-Form-Of-Student</h1>
+    <a th:href="@{/api/student/dashboard}">Back to Home Page</a>
+    <hr>
+    <b>CGPA: </b><span th:text="${cgpa}"></span>
+<hr>
+    <h1>MID-1</h1>
+    <table border="1">
+        <tr>
+            <th>SubjectName</th>
+            <th>Marks</th>
+        </tr>
+        <tr th:each="marks : ${mid1Marks}">
+            <td th:text="${marks.subject.getName()}"></td>
+            <td th:text="${marks.getMarks()}"></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>MID-2</h1>
+    <table border="1">
+        <tr>
+            <th>SubjectName</th>
+            <th>Marks</th>
+        </tr>
+        <tr th:each="marks : ${mid2Marks}">
+            <td th:text="${marks.subject.getName()}"></td>
+            <td th:text="${marks.getMarks()}"></td>
+        </tr>
+    </table>
+<hr>
+<h1>FINAL</h1>
+    <table border="1">
+        <tr>
+            <th>SubjectName</th>
+            <th>Marks</th>
+        </tr>
+        <tr th:each="marks : ${finalMarks}">
+            <td th:text="${marks.subject.getName()}"></td>
+            <td th:text="${marks.getMarks()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

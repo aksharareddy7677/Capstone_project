@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All-Classrooms-For-Admin</title>
+</head>
+<body>
+    <h1>All-Classrooms-For-Admin</h1>
+    <a class="btn btn-secondary" th:href="@{/api/admin/dashboard}">Back to Home Page</a>
+<table class="table table-striped" border="1">
+    <tr >
+        <th>Classroom_No</th>
+        <th> Year</th>
+        <th>  Branch</th>
+        <th>  Section</th>
+
+    </tr>
+    <tr th:each="classroom : ${classrooms}">
+        <td th:text="${classroom.id}"></td>
+        <td th:text="${classroom.year}"></td>
+        <td th:text="${classroom.section}"></td>
+        <td th:text="${classroom.name}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

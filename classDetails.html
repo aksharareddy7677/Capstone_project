@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Class Details</h2>
+<a th:href="@{/api/teacher/dashboard}">⬅ Back to Dashboard</a>
+<p>
+    <b>Class:</b><span th:text="${classroom.name}"></span>
+    <b>Section:</b><span th:text="${section}"></span>
+    <b>Subject:</b><span th:text="${subject.name}"></span>
+</p>
+<h3>Students</h3>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Attendance</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="attendance : ${attendances}">
+        <td th:text="${attendance.student.id}"></td>
+        <td th:text="${attendance.student.name}"></td>
+        <td th:text="${attendance.student.email}"></td>
+        <td th:text="${attendance.percentage + ' %'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

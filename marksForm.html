@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h2>Enter Marks</h2>
+<a th:href="@{/api/teacher/dashboard}">⬅ Back to Dashboard</a>
+<form th:action="@{/api/teacher/marks}" method="post">
+
+    <input type="hidden" name="classroomId" th:value="${classroom.id}">
+    <input type="hidden" name="section" th:value="${section}">
+    <input type="hidden" name="subjectId" th:value="${subject.id}">
+    <input type="hidden" name="examType" th:value="${examType}">
+
+    <table border="1">
+        <tr>
+            <th>Student</th>
+            <th>Marks</th>
+        </tr>
+
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}"></td>
+
+            <td>
+                <input type="hidden" name="studentIds" th:value="${student.id}">
+                <input type="number" name="marks" min="0" max="100" required>
+            </td>
+        </tr>
+
+    </table>
+
+    <button type="submit">Save Marks</button>
+</form>
+
+</body>
+</html>

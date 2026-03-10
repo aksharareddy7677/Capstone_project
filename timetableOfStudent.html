@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Time-Table</title>
+</head>
+<body>
+    <h1>Time-Table</h1>
+    <a th:href="@{/api/student/dashboard}">Back to Home Page</a>
+    <table border="1">
+
+        <tr>
+            <th>Day</th>
+            <th th:each="slot : ${timeSlots}"
+                th:text="${slot}">
+            </th>
+        </tr>
+
+        <tr th:each="entry : ${timetableGrid}">
+            <td th:text="${entry.key}"></td>
+
+            <td th:each="slot : ${timeSlots}"
+                th:text="${entry.value.get(slot)}">
+            </td>
+
+        </tr>
+
+
+    </table>
+
+</body>
+</html>

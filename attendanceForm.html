@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Form</title>
+</head>
+<body>
+
+<h1>Mark Attendance</h1>
+
+<a th:href="@{/api/teacher/dashboard}">⬅ Back to Dashboard</a>
+
+<form th:action="@{/api/teacher/attendance}" method="post">
+
+    <!-- Hidden values coming from attendance() GET mapping -->
+    <input type="hidden" name="classroomId" th:value="${classroomId}">
+    <input type="hidden" name="section" th:value="${section}">
+    <input type="hidden" name="subjectId" th:value="${subjectId}">
+
+    <!-- Time Slot -->
+    <label>Time Slot:</label>
+    <select name="timeSlot" required>
+        <option value="">-- Select Period --</option>
+        <option value="PERIOD_1">Period 1</option>
+        <option value="PERIOD_2">Period 2</option>
+        <option value="PERIOD_3">Period 3</option>
+        <option value="PERIOD_4">Period 4</option>
+        <option value="PERIOD_5">Period 5</option>
+    </select>
+
+
+    <br><br>
+
+    <!-- Students Table -->
+    <table border="1" cellpadding="8">
+        <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Attendance</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="student : ${students}">
+            <!-- Student ID -->
+            <input type="hidden" name="studentIds" th:value="${student.id}"/>
+
+            <td th:text="${student.name}"></td>
+
+            <td>
+                <select name="statuses" required>
+                    <option value="PRESENT">Present</option>
+                    <option value="ABSENT">Absent</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <button type="submit">💾 Save Attendance</button>
+
+</form>
+
+</body>
+</html>

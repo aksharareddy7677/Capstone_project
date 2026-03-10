@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add-Student-Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1>Add Student</h1>
+    <a th:href="@{/api/admin/dashboard}">⬅ Back to Dashboard</a>
+    <form th:action="@{/api/admin/student}" th:object="${user}" method="post">
+        <label>Student Name</label>
+        <input type="text" th:field="*{name}" placeholder="Enter Student Name" >
+
+        <label>Student Email</label>
+        <input type="text" th:field="*{email}" placeholder="Enter Student Email" >
+
+        <label>Student Password</label>
+        <input type="text" th:field="*{password}" placeholder="Enter Student Password" >
+
+        <label>Classroom</label>
+        <select name="classroom.id">
+            <option th:each="c : ${classrooms}"
+            th:value="${c.id}" th:text="${c.name}">
+
+            </option>
+        </select>
+
+        <label>Section</label>
+        <select name="section">
+            <option th:each="s : ${sections}"
+            th:value="${s}" th:text="${s}">
+
+            </option>
+        </select>
+
+
+        <button type="submit">Add Student</button>
+
+        <a class="btn btn-secondary" th:href="@{/api/admin/dashboard}">Cancel</a>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

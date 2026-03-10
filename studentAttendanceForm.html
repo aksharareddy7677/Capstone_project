@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student_Attendance_Form</title>
+</head>
+<body>
+  <h1>View Your Attendance</h1>
+  <a th:href="@{/api/student/dashboard}">Back to Home Page</a>
+  <b>Total Attendance:<span th:text="${totalAttendance}"></span>%</b>
+<table>
+  <tr border="1">
+    <th>Subject Name</th>
+    <th>Attendance (%)</th>
+  </tr>
+  <tr th:each="attendance : ${attendanceSummary}">
+    <td ><span th:text="${attendance.subjectName}"></span>%</td>
+    <td ><span th:text="${attendance.percentage}"></span>%</td>
+  </tr>
+</table>
+
+</body>
+</html>

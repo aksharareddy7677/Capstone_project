@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Marks-Select</title>
+</head>
+<body>
+
+    <h2>Select Marks Entry</h2>
+    <a th:href="@{/api/teacher/dashboard}">⬅ Back to Dashboard</a>
+    <form th:action="@{/api/teacher/marks}" method="get">
+        <label>Classroom</label>
+        <select name="classroomId" required>
+            <option th:each="c:${classrooms}"
+            th:value="${c.id}"
+            th:text="${c.name}"></option>
+        </select>
+
+        <label>Section</label>
+        <select name="section" required>
+            <option th:each="s: ${sections}"
+            th:value="${s}"
+            th:text="${s}"></option>
+        </select>
+
+        <label>Subject</label>
+        <select name="subjectId" required>
+            <option th:each="s : ${subjects}"
+                    th:value="${s.id}"
+                    th:text="${s.name}">
+            </option>
+        </select>
+
+        <label>Exam Type</label>
+        <select name="examType" required>
+            <option th:each="e : ${examTypes}"
+                    th:value="${e}"
+                    th:text="${e}">
+            </option>
+        </select>
+
+        <button type="submit">Load Students</button>
+    </form>
+
+</body>
+</html>

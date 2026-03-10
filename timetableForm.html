@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Time-Table Form</h1>
+    <a th:href="@{/api/admin/dashboard}">Back to Home Page</a>
+    <form th:action="@{/api/admin/timetable}" method="post">
+
+        <label>Day</label>
+        <select name="day" required>
+            <option th:each="d : ${days}"
+                    th:value="${d}"
+                    th:text="${d}">
+            </option>
+        </select>
+
+        <label>Time Slot</label>
+        <select name="timeSlot" required>
+            <option th:each="t : ${timeSlots}"
+                    th:value="${t}"
+                    th:text="${t}">
+            </option>
+        </select>
+
+        <label>Classroom</label>
+        <select name="classroom" required>
+            <option th:each="c : ${classrooms}"
+                    th:value="${c.id}"
+                    th:text="${c.name}">
+            </option>
+        </select>
+        <label>Section</label>
+        <select name="section" required>
+            <option value="">-- Select Section --</option>
+            <option th:each="s : ${sections}"
+                    th:value="${s}"
+                    th:text="${s}">
+            </option>
+        </select>
+
+        <label>Subject</label>
+        <select name="subject" required>
+            <option th:each="s : ${subjects}"
+                    th:value="${s.id}"
+                    th:text="${s.name}">
+            </option>
+        </select>
+        <label>Teacher</label>
+        <select name="teacherId" required>
+            <option value="">-- Select Teacher --</option>
+            <option th:each="t : ${teachers}"
+                    th:value="${t.id}"
+                    th:text="${t.name}">
+            </option>
+        </select>
+
+        <button type="submit">Add Timetable</button>
+    </form>
+
+</body>
+</html>
