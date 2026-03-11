@@ -1,58 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Smart Classroom Management System</title>
-    <style>
-        body{
-            font-family: Arial;
-            background-color:#f4f6f9;
-            margin:0;
-        }
-        header{
-            background:#2c3e50;
-            color:white;
-            padding:20px;
-            text-align:center;
-        }
-        section{
-            padding:30px;
-        }
-        h2{
-            color:#2c3e50;
-        }
-    </style>
+<title>Smart Classroom Management System</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
 <h1>Smart Classroom Management System</h1>
-<p>Capstone Project</p>
+<p>Digital solution for managing classrooms efficiently</p>
 </header>
 
-<section>
-<h2>About Project</h2>
-<p>This system helps manage classroom attendance, students and reports efficiently.</p>
+<nav>
+<a href="#home">Home</a>
+<a href="#features">Features</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+<h2>Welcome</h2>
+<p>
+The Smart Classroom Management System helps teachers and students
+manage attendance, assignments, schedules, and classroom resources
+efficiently.
+</p>
 </section>
 
-<section>
-<h2>Technologies Used</h2>
-<ul>
-<li>Java</li>
-<li>Spring Boot</li>
-<li>MySQL</li>
-<li>HTML, CSS</li>
-</ul>
-</section>
-
-<section>
+<section id="features">
 <h2>Features</h2>
-<ul>
-<li>Student Management</li>
-<li>Attendance Tracking</li>
-<li>Report Generation</li>
-</ul>
+
+<div class="card">
+<h3>Attendance Tracking</h3>
+<p>Teachers can monitor student attendance easily.</p>
+</div>
+
+<div class="card">
+<h3>Class Scheduling</h3>
+<p>Manage class timetables and course schedules.</p>
+</div>
+
+<div class="card">
+<h3>Assignment Management</h3>
+<p>Upload and track assignments for students.</p>
+</div>
+
+<div class="card">
+<h3>Notifications</h3>
+<p>Send announcements and alerts to students.</p>
+</div>
+
 </section>
+
+<section id="about">
+<h2>About Project</h2>
+<p>
+This project demonstrates a digital platform for managing
+classroom activities efficiently using modern technologies.
+It improves communication between teachers and students
+and simplifies classroom operations.
+</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: smartclassroom@example.com</p>
+<button onclick="message()">Send Message</button>
+</section>
+
+<footer>
+<p>© 2026 Smart Classroom Management System</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
